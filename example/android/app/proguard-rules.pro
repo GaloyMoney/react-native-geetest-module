@@ -8,3 +8,7 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# GeeTest SDK has already been obfuscated, please do not obfuscate it again  
+-dontwarn com.geetest.sdk.**
+-keep class com.geetest.sdk.**{*;}

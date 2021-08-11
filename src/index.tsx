@@ -1,9 +1,11 @@
-import { NativeModules } from 'react-native';
+import { NativeModules } from "react-native"
 
 type GeetestModuleType = {
-  multiply(a: number, b: number): Promise<number>;
-};
+  setUp(): void
+  tearDown(): void
+  handleRegisteredGeeTestCaptcha(params: string): void
+}
 
-const { GeetestModule } = NativeModules;
+const { GeetestModule } = NativeModules
 
-export default GeetestModule as GeetestModuleType;
+export default GeetestModule as GeetestModuleType
