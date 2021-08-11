@@ -1,6 +1,6 @@
 {
   "name": "react-native-geetest-module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A React Native GeeTest module for gt3 that can protect server endpoints.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
