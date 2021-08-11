@@ -32,28 +32,46 @@ const toastShow = (message: string): void => {
   })
 }
 
-// const registerURL = "https://www.geetest.com/demo/gt/register-slide"
-const registerURL = "http://10.0.2.2:3333/register"
-// const validateURL = "https://www.geetest.com/demo/gt/validate-slide"
+const registerURL = "" // Your register endpoint
+const validateURL = "" // Your validate endpoint
+
+const getRegisterCaptcha = async () => {
+  const { data } = await axios.get(registerURL)
+
+  const params = {
+    success: data.success,
+    challenge: data.challenge,
+    gt: data.gt,
+    new_captcha: data.new_captcha,
+  }
+
+  GeetestModule.handleRegisteredGeeTestCaptcha(JSON.stringify(params))
+}
 
 export default function App() {
   const [geetestValidationData, setGeetestValidationData] =
     React.useState<GeetestValidationData | null>(null)
+  const [isVerified, setIsVerified] = React.useState<boolean | null>(null)
 
   const onGeetestDialogResultListener = React.useRef<EventSubscription>()
   const onGeetestFailedListener = React.useRef<EventSubscription>()
 
-  const queryRegisterCaptcha = async () => {
-    const { data } = await axios.get(registerURL)
+  const postValidateCaptcha = async () => {
+    if (geetestValidationData === null) return
 
-    const params = {
-      success: data.success,
-      challenge: data.challenge,
-      gt: data.gt,
-      new_captcha: data.new_captcha,
+    const postData = {
+      geetest_challenge: geetestValidationData.geetestChallenge,
+      geetest_validate: geetestValidationData.geetestValidate,
+      geetest_seccode: geetestValidationData.geetestSeccode,
     }
-    console.log(params)
-    GeetestModule.handleRegisteredGeeTestCaptcha(JSON.stringify(params))
+
+    const { data } = await axios.post(validateURL, postData)
+
+    if (data.result === "success") {
+      setIsVerified(true)
+    } else if (data.result === "fail") {
+      setIsVerified(false)
+    }
   }
 
   React.useEffect(() => {
@@ -89,19 +107,47 @@ export default function App() {
     }
   }, [])
 
+  const reset = () => {
+    setGeetestValidationData(null)
+    setIsVerified(null)
+  }
+
+  const getValidationContent = () => {
+    if (geetestValidationData === null) {
+      return <Button title={"Verify"} onPress={getRegisterCaptcha} />
+    } else if (isVerified === null) {
+      return <Button title="Validate" onPress={postValidateCaptcha} />
+    }
+
+    const validationMessage = isVerified
+      ? "Validation succeeded!"
+      : "Validation failed"
+    return (
+      <>
+        <Text>{validationMessage}</Text>
+        <Button title={"Reset"} onPress={reset} />
+      </>
+    )
+  }
+
   return (
-    <View style={styles.container}>
-      <Button title={"Verify"} onPress={queryRegisterCaptcha} />
-      <Text>
-        GeetestChallenge: {geetestValidationData?.geetestChallenge ?? "none"}
-      </Text>
-      <Text>
-        GeetestSeccode: {geetestValidationData?.geetestSeccode ?? "none"}
-      </Text>
-      <Text>
-        GeetestValidate: {geetestValidationData?.geetestValidate ?? "none"}
-      </Text>
-    </View>
+    <>
+      <View style={styles.container}>{getValidationContent()}</View>
+      <View style={styles.container}>
+        <View style={styles.container}>
+          <Text>
+            GeetestChallenge:{" "}
+            {geetestValidationData?.geetestChallenge ?? "none"}
+          </Text>
+          <Text>
+            GeetestSeccode: {geetestValidationData?.geetestSeccode ?? "none"}
+          </Text>
+          <Text>
+            GeetestValidate: {geetestValidationData?.geetestValidate ?? "none"}
+          </Text>
+        </View>
+      </View>
+    </>
   )
 }
 
