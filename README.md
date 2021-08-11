@@ -5,7 +5,19 @@ A React Native GeeTest module for gt3 that can protect server endpoints.
 ## Installation
 
 ```sh
+yarn add react-native-geetest-module
+```
+
+or
+
+```sh
 npm install react-native-geetest-module
+```
+
+then
+
+```sh
+npx pod-install
 ```
 
 ## Usage
