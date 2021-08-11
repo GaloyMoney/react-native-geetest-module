@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* GeetestModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* GeetestModule.m */; };
-
+		B7E58B1276822F60E0FB6949 /* Pods_GeetestModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA054B65175DDC060436AF8 /* Pods_GeetestModule.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,11 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0AA054B65175DDC060436AF8 /* Pods_GeetestModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeetestModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		134814201AA4EA6300B7C361 /* libGeetestModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGeetestModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		246E60B94F7BF6803C149691 /* Pods-GeetestModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeetestModule.release.xcconfig"; path = "Target Support Files/Pods-GeetestModule/Pods-GeetestModule.release.xcconfig"; sourceTree = "<group>"; };
+		55267AD16AAEE34F9617C071 /* Pods-GeetestModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeetestModule.debug.xcconfig"; path = "Target Support Files/Pods-GeetestModule/Pods-GeetestModule.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* GeetestModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeetestModule.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* GeetestModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeetestModule.m; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7E58B1276822F60E0FB6949 /* Pods_GeetestModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +54,30 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
 				B3E7B5881CC2AC0600A0062D /* GeetestModule.h */,
 				B3E7B5891CC2AC0600A0062D /* GeetestModule.m */,
-
 				134814211AA4EA7D00B7C361 /* Products */,
+				B5BAD1ECD0239A6309D19A47 /* Pods */,
+				A38AD6E5D72C9AA78D5CB372 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		A38AD6E5D72C9AA78D5CB372 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AA054B65175DDC060436AF8 /* Pods_GeetestModule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5BAD1ECD0239A6309D19A47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55267AD16AAEE34F9617C071 /* Pods-GeetestModule.debug.xcconfig */,
+				246E60B94F7BF6803C149691 /* Pods-GeetestModule.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -69,6 +87,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "GeetestModule" */;
 			buildPhases = (
+				D8CB8F893F9AEB98BD64B89C /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -114,14 +133,36 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D8CB8F893F9AEB98BD64B89C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeetestModule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				B3E7B58A1CC2AC0600A0062D /* GeetestModule.m in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +264,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55267AD16AAEE34F9617C071 /* Pods-GeetestModule.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -234,12 +276,12 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = GeetestModule;
 				SKIP_INSTALL = YES;
-
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 246E60B94F7BF6803C149691 /* Pods-GeetestModule.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -251,7 +293,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = GeetestModule;
 				SKIP_INSTALL = YES;
-
 			};
 			name = Release;
 		};
