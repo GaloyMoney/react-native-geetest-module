@@ -23,7 +23,9 @@ npx pod-install
 ## Usage
 
 This module requires a server with register (API1) and validation (API2) endpoints.
+
 ![Geetest Flow](GeetestFlow.png)
+
 Documentation from Geetest is provided [here](https://docs.geetest.com/captcha/deploy/server/node)
 
 Set up the module in the component that uses Geetest
