@@ -1,6 +1,6 @@
 # react-native-geetest-module
 
-A React Native GeeTest module for gt3 that can protect server endpoints.
+A React Native Geetest module for gt3 that can protect server endpoints.
 
 ## Installation
 
@@ -18,6 +18,26 @@ then
 
 ```sh
 npx pod-install
+```
+
+## App Configuration
+
+#### Android
+
+In `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```
+
+In `proguard-rules.pro`
+
+```
+-dontwarn com.geetest.sdk.**
+-keep class com.geetest.sdk.**{*;}
 ```
 
 ## Usage
