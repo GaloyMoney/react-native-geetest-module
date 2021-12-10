@@ -186,7 +186,7 @@ PODS:
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
   - React-jsinspector (0.63.4)
-  - react-native-geetest-module (0.1.0):
+  - react-native-geetest-module (0.1.2):
     - GT3Captcha-iOS
     - React-Core
   - React-RCTActionSheet (0.63.4):
@@ -361,7 +361,7 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-geetest-module: ed0ff8bbe4a32fc496e42c21329dc43b3c1d6645
+  react-native-geetest-module: 266983e2bad2f5cb7203184c97159ed2f99244e1
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -376,4 +376,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b40de7075b6e55f37a3bf2529d4528bc1eb6de79
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
