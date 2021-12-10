@@ -55,5 +55,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation 'com.geetest.sensebot:sensebot:4.3.4.2'
+    implementation 'com.geetest.sensebot:sensebot:4.3.5.2'
 }

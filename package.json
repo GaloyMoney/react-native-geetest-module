@@ -1,5 +1,5 @@
 {
-  "name": "react-native-geetest-module",
+  "name": "@galoymoney/react-native-geetest-module",
   "version": "0.1.2",
   "description": "A React Native GeeTest module for gt3 that can protect server endpoints.",
   "main": "lib/commonjs/index",
@@ -44,7 +44,8 @@
   },
   "homepage": "https://github.com/GaloyMoney/react-native-geetest-module#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
