@@ -95,7 +95,11 @@ public class GeetestModuleModule extends ReactContextBaseJavaModule {
              * @param num 1 Click the close button to close the CAPTCHA, 2 Click anyplace on screen to close the CAPTCHA, 3 Click return button the close
              */
             @Override
-            public void onClosed(int num) {}
+            public void onClosed(int num) {
+                WritableMap params = Arguments.createMap();
+                params.putInt("closed", num);
+                sendEvent(getReactApplicationContext(), "GT3-->onClosed-->", params);
+            }
 
             /**
              * Verfication succeeds
