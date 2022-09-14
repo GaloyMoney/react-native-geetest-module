@@ -12,6 +12,7 @@ RCT_EXPORT_MODULE()
     return @[
       @"GT3-->onDialogResult-->",
       @"GT3-->onFailed-->",
+      @"GT3-->onClosed-->",
     ];
 }
 
@@ -80,6 +81,12 @@ RCT_EXPORT_METHOD(handleRegisteredGeeTestCaptcha:(NSString *)params)
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     if (error && hasListeners) {
         [self sendEventWithName:@"GT3-->onFailed-->" body:@{@"error": [error localizedDescription]}];
+    }
+}
+
+- (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
+    if (hasListeners) {
+        [self sendEventWithName:@"GT3-->onClosed-->" body:@{@"closed": @1}];
     }
 }
 
